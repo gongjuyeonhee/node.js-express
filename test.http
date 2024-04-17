@@ -1,0 +1,19 @@
+GET http://localhost:3000/api/members
+
+
+###
+
+POST http://localhost:3000/api/members
+Content-Type: application/json
+
+{
+    "id": 11,
+    "name": "sungchan",
+    "team": "Engineering",
+    "position": "Android Developer",
+    "emailAddress": "sungchan@google.com",
+    "phoneNumber": "010-xxxx-xxxx",
+    "admissionDate": "2023/11/13",
+    "birthday": "2001/09/11",
+    "profileImage": "profile11.png"
+}
