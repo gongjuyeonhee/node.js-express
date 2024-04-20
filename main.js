@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 
 const db = require("./models/index");
+const members = require("./members");
 const { Member } = db;
 
 app.use(express.json());
@@ -10,10 +11,15 @@ app.use(express.json());
 app.get("/api/members", async (req, res) => {
   const { team } = req.query;
   if (team) {
-    const teamMembers = await Member.findAll({ where: { team } });
+    const teamMembers = await Member.findAll({
+      where: { team: team, position: "Server Developer" }, //해당 팀에서 포지션이 server developer인 사람들
+      order: [["admissionDate", "DESC"]], //입사일자(내림차순)
+    });
     res.send(teamMembers);
   } else {
-    const members = await Member.findAll();
+    const members = await Member.findAll({
+      order: [["admissionDate", "DESC"]],
+    });
     res.send(members);
   }
 });

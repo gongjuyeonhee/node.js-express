@@ -3,9 +3,9 @@
 
 GET http://localhost:3000/api/members
 
-###//엔지니어링이거나 마케팅 부서 사람들 추출
+###//엔지니어링이면서 포지션이 Server Developer인 사람들 추출
 
-GET http://localhost:3000/api/members?team=engineering&team=marketing
+GET http://localhost:3000/api/members?team=engineering
 
 
 ###
