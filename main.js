@@ -2,16 +2,18 @@ const express = require("express");
 
 const app = express();
 
-let members = require("./members");
+const db = require("./models/index");
+const { Member } = db;
 
 app.use(express.json());
 
-app.get("/api/members", (req, res) => {
+app.get("/api/members", async (req, res) => {
   const { team } = req.query;
   if (team) {
-    const teamMembers = members.filter((m) => m.team === team);
+    const teamMembers = await Member.findAll({ where: { team } });
     res.send(teamMembers);
   } else {
+    const members = await Member.findAll();
     res.send(members);
   }
 });
