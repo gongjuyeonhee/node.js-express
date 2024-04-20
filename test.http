@@ -1,4 +1,11 @@
-GET http://localhost:3000/api/members?team=engineering
+
+###//입사 일자(내림차순)
+
+GET http://localhost:3000/api/members
+
+###//엔지니어링이거나 마케팅 부서 사람들 추출
+
+GET http://localhost:3000/api/members?team=engineering&team=marketing
 
 
 ###
